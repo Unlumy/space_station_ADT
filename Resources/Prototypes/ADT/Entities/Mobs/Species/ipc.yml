@@ -137,7 +137,6 @@
   - type: BloodCough
     postingSayDamage: blood-cough-ipc
   - type: TimeDespawnDamage
-  - type: OfferItem # ADT-Tweak 
 
 - type: entity
   save: false
