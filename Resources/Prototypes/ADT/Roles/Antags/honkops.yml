@@ -1,0 +1,60 @@
+- type: startingGear
+  id: SyndicateOperativeGearFullNoUplinkHonkops
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClown
+    back: ClothingBackpackDuffelSyndicate
+    mask: ClothingMaskClownUnremoveable
+    eyes: ClothingEyesHudSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitSyndie
+    shoes: ClothingShoesClownLarge
+    id: SyndiPDA
+    pocket1: BikeHorn
+    belt: ClothingBeltMilitaryWebbing
+  storage:
+    back:
+    - WeaponPistolViper
+    - PinpointerSyndicateNuclear
+    - DeathAcidifierImplanter
+
+#Nuclear Operative Gear
+- type: startingGear
+  id: SyndicateOperativeGearFullHonkops
+  parent: SyndicateOperativeGearFullNoUplinkHonkops
+  equipment:
+    pocket2: BaseUplinkRadio25TC
+
+#Nuclear Operative Commander Gear
+- type: startingGear
+  id: SyndicateCommanderGearFullHonkops
+  parent: SyndicateOperativeGearFullNoUplinkHonkops
+  equipment:
+    neck: SyndicateWhistle
+    pocket2: BaseUplinkRadio40TC
+    outerClothing: ClothingOuterHardsuitSyndieCommander
+  inhand:
+  - NukeOpsDeclarationOfWar
+
+#Nuclear Operative Medic Gear
+- type: startingGear
+  id: SyndicateOperativeMedicFullHonkops
+  parent: SyndicateOperativeGearFullNoUplinkHonkops
+  equipment:
+    eyes: ClothingEyesHudSyndicateAgent
+    outerClothing: ClothingOuterHardsuitSyndieMedic
+    shoes: ClothingShoesBootsMagSyndie
+    id: SyndiAgentPDA
+    belt: ClothingBeltMilitaryWebbingMedFilled
+    pocket2: BaseUplinkRadio225TCMedic
+  storage:
+    back:
+    - SyndiHypo
+    - SawAdvanced
+    - Cautery
+    - CombatKnife
+    - WeaponPistolViper
+    - PinpointerSyndicateNuclear
+    - HandheldHealthAnalyzer
+    - CombatMedipen
+    - DeathAcidifierImplanter

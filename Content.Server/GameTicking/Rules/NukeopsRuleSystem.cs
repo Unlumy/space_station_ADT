@@ -94,22 +94,22 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         GameRuleComponent gameRule,
         ref RoundEndTextAppendEvent args)
     {
-        var winText = Loc.GetString($"nukeops-{component.WinType.ToString().ToLower()}");
+        var winText = Loc.GetString($"{component.LocalePrefix}{component.WinType.ToString().ToLower()}");
         args.AddLine(winText);
 
         foreach (var cond in component.WinConditions)
         {
-            var text = Loc.GetString($"nukeops-cond-{cond.ToString().ToLower()}");
+            var text = Loc.GetString($"{component.LocalePrefix}cond-{cond.ToString().ToLower()}");
             args.AddLine(text);
         }
 
-        args.AddLine(Loc.GetString("nukeops-list-start"));
+        args.AddLine(Loc.GetString($"{component.LocalePrefix}list-start"));
 
         var antags =_antag.GetAntagIdentifiers(uid);
 
         foreach (var (_, sessionData, name) in antags)
         {
-            args.AddLine(Loc.GetString("nukeops-list-name-user", ("name", name), ("user", sessionData.UserName)));
+            args.AddLine(Loc.GetString($"{component.LocalePrefix}list-name-user", ("name", name), ("user", sessionData.UserName)));
         }
     }
 
@@ -479,7 +479,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         RemComp<PacifiedComponent>(args.EntityUid); // Corvax-DionaPacifist: Allow dionas nukes to harm
         _antag.SendBriefing(args.Session,
-            Loc.GetString("nukeops-welcome",
+            Loc.GetString($"{ent.Comp.LocalePrefix}welcome",
                 ("station", target),
                 ("name", Name(ent))),
             Color.Red,
@@ -489,7 +489,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     private void OnGetBriefing(Entity<NukeopsRoleComponent> role, ref GetBriefingEvent args)
     {
         // TODO Different character screen briefing for the 3 nukie types
-        args.Append(Loc.GetString("nukeops-briefing"));
+        args.Append(Loc.GetString("nukeops-briefing")); // TODO: Goobstation: somehow pass the nukeopsrulecomponent here so we can change this based on LocalePrefix for Honkops.
     }
 
     /// <remarks>
